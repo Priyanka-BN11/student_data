@@ -24,7 +24,6 @@ This API provides endpoints for managing student data, including retrieving, add
 2. Install the dependencies:
    ```sh
    npm install
-
 ## Usage
 1. Start the server:
     ```sh
@@ -39,19 +38,17 @@ This API provides endpoints for managing student data, including retrieving, add
 5. Update the grade of a student by name and class name : PUT /students/:name/:class/:grade
 6. Get the GPA of a student : GET /students/:name/gpa
 
-## Running the Application
-To run the application, use the following command:
-```sh
-node <filename>.js
-
 ## Dependencies
 1. express
 2. body-parser
 3. uuid
-
-You can install the dependencies using the following command:
+- You can install the dependencies using the following command:
 ```sh
- npm install express body-parser uuid
+npm install express body-parser uuid
+
+
+
+
 
 
 
