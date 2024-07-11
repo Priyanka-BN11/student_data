@@ -45,6 +45,3 @@ This API provides endpoints for managing student data, including retrieving, add
 - You can install the dependencies using the following command:
 ```sh
 npm install express body-parser uuid
-
-
-
