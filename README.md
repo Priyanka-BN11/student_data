@@ -22,11 +22,14 @@ This API provides endpoints for managing student data, including retrieving, add
    git clone <repository_url>
    cd <repository_directory>
 2. Install the dependencies:
+   ```sh
    npm install
 
 ## Usage
-1. Start the server: node <filename>.js
-2. The application will listen on port 8080.
+1. Start the server:
+    ```sh
+    node <filename>.js
+3. The application will listen on port 8080.
 
 ## EndPoints
 1. Get the list of all students : GET /students
@@ -38,7 +41,8 @@ This API provides endpoints for managing student data, including retrieving, add
 
 ## Running the Application
 To run the application, use the following command:
- - node <filename>.js
+```sh
+node <filename>.js
 
 ## Dependencies
 1. express
@@ -46,7 +50,8 @@ To run the application, use the following command:
 3. uuid
 
 You can install the dependencies using the following command:
- - npm install express body-parser uuid
+```sh
+ npm install express body-parser uuid
 
 
 
