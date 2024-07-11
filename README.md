@@ -37,7 +37,11 @@ This API provides endpoints for managing student data, including retrieving, add
 4. Delete a student by ID : DELETE /students/:id
 5. Update the grade of a student by name and class name : PUT /students/:name/:class/:grade
 6. Get the GPA of a student : GET /students/:name/gpa
-
+## Running the Application
+1. To run the application, use the following command:
+    ```sh
+    node <filename>.js
+    
 ## Dependencies
 1. express
 2. body-parser
