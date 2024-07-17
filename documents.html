@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management API Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        .header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #77b300 3px solid;
+        }
+        .header h1 {
+            text-align: center;
+            text-transform: uppercase;
+            margin: 0;
+            font-size: 24px;
+        }
+        .main {
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px #ccc;
+        }
+        .endpoint {
+            margin-bottom: 20px;
+        }
+        .endpoint h2 {
+            color: #333;
+            border-bottom: 2px solid #77b300;
+        }
+        .endpoint pre {
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Student Management API Documentation</h1>
+    </div>
+    <div class="container">
+        <div class="main">
+            <div class="endpoint">
+                <h2>1. Get the list of all students</h2>
+                <p><strong>Endpoint:</strong></p>
+                <pre>GET /students</pre>
+                <p><strong>Description:</strong></p>
+                <p>Returns the list of all students.</p>
+                <p><strong>Response:</strong></p>
+                <pre>200 OK: Returns an array of student objects.</pre>
+                <p><strong>Example:</strong></p>
+                <pre>[
+    {
+        "id": 1,
+        "name": "Jessica Drake",
+        "classes": {
+            "biology": 95,
+            "algebra": 92
+        }
+    },
+    {
+        "id": 2,
+        "name": "Ben Cohen",
+        "classes": {
+            "biology": 95,
+            "algebra": 92
+        }
+    },
+    {
+        "id": 3,
+        "name": "Lisa Downing",
+        "classes": {
+            "biology": 95,
+            "algebra": 92
+        }
+    }
+]</pre>
+            </div>
+            <div class="endpoint">
+                <h2>2. Get data about a single student by name</h2>
+                <p><strong>Endpoint:</strong></p>
+                <pre>GET /students/:name</pre>
+                <p><strong>Description:</strong></p>
+                <p>Returns data about a single student by name.</p>
+                <p><strong>Parameters:</strong></p>
+                <pre>name (string): The name of the student.</pre>
+                <p><strong>Response:</strong></p>
+                <pre>200 OK: Returns the student object if found.
+404 Not Found: If the student is not found.</pre>
+                <p><strong>Example:</strong></p>
+                <pre>{
+    "id": 1,
+    "name": "Jessica Drake",
+    "classes": {
+        "biology": 95,
+        "algebra": 92
+    }
+}</pre>
+            </div>
+            <div class="endpoint">
+                <h2>3. Add a new student</h2>
+                <p><strong>Endpoint:</strong></p>
+                <pre>POST /students</pre>
+                <p><strong>Description:</strong></p>
+                <p>Adds a new student to the list.</p>
+                <p><strong>Request Body:</strong></p>
+                <pre>{
+    "name": "New Student",
+    "classes": {
+        "biology": 90,
+        "algebra": 85
+    }
+}</pre>
+                <p><strong>Response:</strong></p>
+                <pre>201 Created: Returns the added student object with a generated ID.
+400 Bad Request: If the name is missing in the request body.</pre>
+                <p><strong>Example:</strong></p>
+                <pre>{
+    "id": "generated-uuid",
+    "name": "New Student",
+    "classes": {
+        "biology": 90,
+        "algebra": 85
+    }
+}</pre>
+            </div>
+            <div class="endpoint">
+                <h2>4. Delete a student by ID</h2>
+                <p><strong>Endpoint:</strong></p>
+                <pre>DELETE /students/:id</pre>
+                <p><strong>Description:</strong></p>
+                <p>Deletes a student from the list by ID.</p>
+                <p><strong>Parameters:</strong></p>
+                <pre>id (string): The ID of the student.</pre>
+                <p><strong>Response:</strong></p>
+                <pre>201 Created: If the student is deleted.
+404 Not Found: If the student with the given ID is not found.</pre>
+                <p><strong>Example:</strong></p>
+                <pre>Student generated-uuid was deleted</pre>
+            </div>
+            <div class="endpoint">
+                <h2>5. Update the grade of a student by name and class name</h2>
+                <p><strong>Endpoint:</strong></p>
+                <pre>PUT /students/:name/:class/:grade</pre>
+                <p><strong>Description:</strong></p>
+                <p>Updates the grade of a student by student name and class name.</p>
+                <p><strong>Parameters:</strong></p>
+                <pre>name (string): The name of the student.
+class (string): The class name.
+grade (integer): The new grade.</pre>
+                <p><strong>Response:</strong></p>
+                <pre>201 Created: If the grade is updated.
+404 Not Found: If the student is not found.</pre>
+                <p><strong>Example:</strong></p>
+                <pre>Student Jessica Drake was assigned a grade of 98 in biology</pre>
+            </div>
+            <div class="endpoint">
+                <h2>6. Get the GPA of a student</h2>
+                <p><strong>Endpoint:</strong></p>
+                <pre>GET /students/:name/gpa</pre>
+                <p><strong>Description:</strong></p>
+                <p>Calculates and returns the GPA of a student by name.</p>
+                <p><strong>Parameters:</strong></p>
+                <pre>name (string): The name of the student.</pre>
+                <p><strong>Response:</strong></p>
+                <pre>201 Created: Returns the GPA if the student is found.
+404 Not Found: If the student is not found.</pre>
+                <p><strong>Example:</strong></p>
+                <pre>3.85</pre>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
